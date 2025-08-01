@@ -4,6 +4,7 @@ const AppointmentSchema = new mongoose.Schema({
   patient: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   doctor: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   service: { type: mongoose.Schema.Types.ObjectId, ref: "Service", required: true },
+  treatment: { type: mongoose.Schema.Types.ObjectId, ref: "Treatment", required: true },
   date: { type: Date, required: true },
   startTime: { type: Date, required: true },
   endTime: { type: Date, required: true },
@@ -14,7 +15,8 @@ const AppointmentSchema = new mongoose.Schema({
   },
   sessionNumber: { type: Number, default: 1 }, 
   parentAppointment: { type: mongoose.Schema.Types.ObjectId, ref: "Appointment", default: null },
-  notes: { type: String }
+  notes: { type: String },
+  type:{ type: String, enum: ["online", "offline"], default: "offline" },
 });
 
 // Ensure startTime is before endTime before saving

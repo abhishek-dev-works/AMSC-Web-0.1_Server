@@ -2,8 +2,12 @@
   "name": "amsc-web-0.1_server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "start:prod": "NODE_ENV=production node server.js",
+    "debug": "node --inspect server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
